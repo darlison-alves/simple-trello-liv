@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input, Loader, Dimmer } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
 
-export function AddCardInput({ listId, listItems }) {
+export function AddCardInput({ listId, listItems, addCard }) {
     const [text, setText] = React.useState('');
     const [isLoading, setLoading] = React.useState(false)
 
@@ -17,14 +17,13 @@ export function AddCardInput({ listId, listItems }) {
         evt.preventDefault()
         console.log("[X] handleSubmit ")
         setLoading(true)
-        
+        addCard(text)
         setTimeout(() => {
             setLoading(false)
         }, 2000)
     }
 
     return (
-
         <div className="box">
             <div className="container-1">
             <form onSubmit={handleSubmit}>
