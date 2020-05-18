@@ -1,10 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-// import './App.css';
-import { Board } from './components/board';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import ReduxToastr from 'react-redux-toastr'
+
+
+import rootReducer from './redux/reducers/index';
+import BoardContainer from './components/board/containers/board.container';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 function App() {
-  return <Board />
+  return (
+    <Provider store={store} >
+      <ReduxToastr
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates
+        position="top-left"
+        getState={(state) => state.toastr} // This is the default
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar
+        closeOnToastrClick/>
+      <BoardContainer />
+    </Provider>
+  )  
   // return (
   //   <div className="App">
   //     <header className="App-header">
