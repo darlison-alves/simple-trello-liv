@@ -1,0 +1,162 @@
+/* @import url("https://fonts.googleapis.com/css?family=Vibur&display=swap"); */
+
+:root {
+  --grid: 8px;
+  --pink: #fd3afd;
+  --pinkDark: #690169;
+  --greyLight: #afb2b9;  
+  --black: #1d212e;
+  --blue: #0888ff;
+  --borderWidth: 2px;
+  --borderRadius: 8px;
+}
+
+body {
+  background: var(--blue);
+  font-family: "Vibur", cursive;
+  user-select: none;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.columns {
+  display: flex;
+}
+
+.column {
+  margin: calc(var(--grid) / 2);
+  /* border: var(--borderWidth) solid #0ff0fc; */
+  border: none;
+  /* border-radius: var(--borderRadius); */
+  background-color: #2a2f41;
+}
+
+.column-btn {
+    margin: 0;
+    /* border: var(--borderWidth) solid #0ff0fc; */
+    border: none;
+    /* border-radius: var(--borderRadius); */
+    background-color: var(--blue);
+  }
+
+.column-title {
+  font-size: 20px;
+  color: var(--greyLight);
+  /* text-shadow: 0px 0px 2px var(--pinkDark),
+    0px 0px 15px rgba(255, 110, 255, 0.5); */
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+.column-title:hover {
+  /* text-shadow: 0px 0px 2px var(--pinkDark),
+    0px 0px 15px rgba(255, 110, 255, 0.8); */
+}
+
+.task-list {
+  /* this has no visible impact, but is in line with the absolute position spacing.
+  doing this ensures that dropping into an empty list will be in the correct visual position */
+  padding-left: var(--grid);
+  padding-right: var(--grid);
+  scrollbar-color: dark;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 1em;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background-color: var(--greyLight);
+  borderradius: var(--borderRadius);
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+}
+
+.item {
+  background: #333851;
+  border: none;
+  box-sizing: border-box;
+  border-radius: var(--borderRadius);
+  color: #cdd5ee;
+  font-size: 20px;
+  user-select: none;
+
+  /* center align text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item.is-dragging {
+  background: #515b7d;
+  border-color: #08ff08;
+  box-shadow: 0px 0px 2px rgb(8, 58, 30), 0px 0px 10px MediumSeaGreen;
+}
+.box{
+    margin: 100px auto;
+    width: 300px;
+    height: 50px;
+  }
+
+  .container-1{
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+
+.container-1 input#search{
+    width: 300px;
+    height: 50px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+    color: #65737e;
+ }
+  
+ .container-1 input#search:-moz-placeholder { /* Firefox 18- */
+    color: #65737e;  
+ }
+  
+ .container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+    color: #65737e;  
+ }
+  
+ .container-1 input#search:-ms-input-placeholder {  
+    color: #65737e;  
+ }
+
+ .container-1 .icon{
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #4f5b66;
+  }
+
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #ffffff;
+}
